@@ -1,0 +1,9 @@
+{
+  "name": "next-bitcoin-address",
+  "version": "0.1.0",
+  "main": "index.js",
+  "private": true,
+  "repository": "https://github.com/alexk111/next-bitcoin-address.git",
+  "author": "alexk111 <alexk111@users.noreply.github.com>",
+  "license": "MIT"
+}
