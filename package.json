@@ -2,8 +2,21 @@
   "name": "next-bitcoin-address",
   "version": "0.1.0",
   "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec \"node -r dotenv/config index.js\"",
+    "start": "node -r dotenv/config index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "private": true,
   "repository": "https://github.com/alexk111/next-bitcoin-address.git",
   "author": "alexk111 <alexk111@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
 }
