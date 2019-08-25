@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon --exec \"node -r dotenv/config index.js\"",
     "start": "node -r dotenv/config index.js",
+    "check": "node check.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
