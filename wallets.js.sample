@@ -1,0 +1,10 @@
+const wallets = {
+  'my-wallet': {
+    'title': 'My Bitcoin Wallet',
+    'description': 'If you want to support my work you can make a donation to this address.',
+    'xpub': 'XPUBKEY',
+    'addrEnc': '' // Optional. 'p2pkh'|'p2wpkh-in-p2sh'|'p2wpkh'
+  }
+}
+
+module.exports = wallets

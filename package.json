@@ -13,6 +13,8 @@
   "author": "alexk111 <alexk111@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "bitcoinjs-lib": "^5.1.4",
+    "bs58check": "^2.1.2",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "hbs": "^4.0.4"
