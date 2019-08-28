@@ -3,7 +3,6 @@ const express = require('express')
 const hbs = require('hbs')
 
 const initWallets = require('./modules/wallets')
-const makeQRCode = require('./modules/make-qr-code')
 
 async function main () {
   const wallets = await initWallets()
@@ -36,10 +35,8 @@ async function main () {
       const walletId = req.params.walletId || ''
       const wallet = wallets[walletId] || wallets['default']
       const address = wallet.generateAddress()
-      const bip21Url = 'bitcoin:' + address
-      const qrCode = makeQRCode(bip21Url)
       if (wallet) {
-        res.json({ address, qrCode, walletId })
+        res.json({ address, walletId })
       } else {
         res.status(404).json({ error: true })
       }

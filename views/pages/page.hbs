@@ -29,9 +29,14 @@
         max-width: 42em;
       }
 
-      .btn, svg, .form-group {
+      .btn, svg {
+        width: 80%;
+        max-width: 280px;
+      }
+
+      .form-group {
         width: 100%;
-        max-width: 320px;
+        max-width: 360px;
       }
 
       svg {
@@ -46,18 +51,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.3/qrcode.js"></script>
   </head>
   <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
+      <header class="mb-auto pt-3 pb-3">
         <div class="inner">
           <h1 class="cover-heading">{{ pageData.title }}</h1>
           <p class="lead">{{ pageData.description }}</p>
         </div>
       </header>
       <main role="main" class="inner cover">
-        <p class="lead">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="145px" height="145px" viewBox="0 0 145 145"  preserveAspectRatio="xMinYMin meet"><rect width="100%" height="100%" fill="white" cx="0" cy="0"/><path d="" stroke="transparent" fill="black"/></svg>
+        <p id="qrcode-area" class="lead">
         </p>
         <p class="lead">
           <a href="#" class="btn btn-lg btn-secondary">Open in Wallet</a>
@@ -70,42 +75,65 @@
 
       <footer class="mt-auto pt-3">
         <div class="inner">
-          <p>Powered by <a href="https://github.com/alexk111/next-bitcoin-address">NextBitcoinAddress</a>.</p>
+          <p>Powered by <a href="https://github.com/alexk111/next-bitcoin-address" target="_blank">NextBitcoinAddress</a>.</p>
         </div>
       </footer>
       <script>
-        $('.btn-tooltip')
-          .tooltip({'placement': 'bottom'})
-          .on('mouseleave', function () {
-            $(this).tooltip('hide')
+        window.walletId = '{{walletId}}'
+      </script>
+      <script>
+
+        function makeQRCode (dataVal) {
+          const qr = qrcode(0, 'M')
+          qr.addData(dataVal)
+          qr.make()
+          return qr.createSvgTag(5, 0)
+        }
+
+        $(function ($) {
+          console.log($)
+          $.get('/' + window.walletId + '.json', function (data) {
+            console.log(data)
+          })
+            .fail(function () {
+              console.log('error')
+            })
+          const bip21Url = 'bitcoin:' + '12345BitcoinAddress12345'
+          $('#qrcode-area').html(makeQRCode(bip21Url))
+
+          $('.btn-tooltip')
+            .tooltip({'placement': 'bottom'})
+            .on('mouseleave', function () {
+              $(this).tooltip('hide')
+            })
+
+          const clipboard = new ClipboardJS('.btn-clipboard')
+
+          clipboard.on('success', function (e) {
+            $(e.trigger)
+              .attr('title', 'Copied!')
+              .tooltip('_fixTitle')
+              .tooltip('show')
+              .attr('title', 'Copy to clipboard')
+              .tooltip('_fixTitle')
+
+            e.clearSelection()
           })
 
-        const clipboard = new ClipboardJS('.btn-clipboard')
+          clipboard.on('error', function (e) {
+            var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
+            var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
 
-        clipboard.on('success', function (e) {
-          $(e.trigger)
-            .attr('title', 'Copied!')
-            .tooltip('_fixTitle')
-            .tooltip('show')
-            .attr('title', 'Copy to clipboard')
-            .tooltip('_fixTitle')
+            $(e.trigger)
+              .attr('title', fallbackMsg)
+              .tooltip('_fixTitle')
+              .tooltip('show')
+              .attr('title', 'Copy to clipboard')
+              .tooltip('_fixTitle')
+          })
 
-          e.clearSelection()
+          new ClipboardJS('.btn')
         })
-
-        clipboard.on('error', function (e) {
-          var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
-          var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
-
-          $(e.trigger)
-            .attr('title', fallbackMsg)
-            .tooltip('_fixTitle')
-            .tooltip('show')
-            .attr('title', 'Copy to clipboard')
-            .tooltip('_fixTitle')
-        })
-
-        new ClipboardJS('.btn')
       </script>
     </div>
   </body>
