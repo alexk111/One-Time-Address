@@ -62,3 +62,6 @@ typings/
 
 # wallets config
 /wallets.js
+
+# directory for used addresses
+addresses
