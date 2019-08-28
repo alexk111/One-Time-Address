@@ -4,12 +4,109 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Title</title>
+    <title>{{ pageData.title }}</title>
+    <meta name="description" content="{{ pageData.title }}" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      a,
+      a:focus,
+      a:hover {
+        color: #000;
+      }
+
+      .cover-container {
+        max-width: 42em;
+      }
+
+      .btn, svg, .form-group {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      svg {
+        height: auto;
+      }
+
+      footer {
+        color: rgba(0, 0, 0, .5);
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
   </head>
-  <body>
-    <main role="main">
-      <h1>Donation page</h1>
-      <p>{{ walletId }}</p>
-    </main>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div class="inner">
+          <h1 class="cover-heading">{{ pageData.title }}</h1>
+          <p class="lead">{{ pageData.description }}</p>
+        </div>
+      </header>
+      <main role="main" class="inner cover">
+        <p class="lead">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="145px" height="145px" viewBox="0 0 145 145"  preserveAspectRatio="xMinYMin meet"><rect width="100%" height="100%" fill="white" cx="0" cy="0"/><path d="" stroke="transparent" fill="black"/></svg>
+        </p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Open in Wallet</a>
+        </p>
+        <div class="form-group mx-auto">
+          <label for="address-to-copy">&mdash; or copy the address &mdash;</label>
+          <input id="address-to-copy" type="text" class="form-control form-control-sm btn-tooltip btn-clipboard" placeholder="Bitcoin address" aria-label="Bitcoin address" aria-describedby="button-copy" readonly="readonly" value="12345BitcoinAddress12345" data-clipboard-target="#address-to-copy" title="Copy to clipboard">
+        </div>
+      </main>
+
+      <footer class="mt-auto pt-3">
+        <div class="inner">
+          <p>Powered by <a href="https://github.com/alexk111/next-bitcoin-address">NextBitcoinAddress</a>.</p>
+        </div>
+      </footer>
+      <script>
+        $('.btn-tooltip')
+          .tooltip({'placement': 'bottom'})
+          .on('mouseleave', function () {
+            $(this).tooltip('hide')
+          })
+
+        const clipboard = new ClipboardJS('.btn-clipboard')
+
+        clipboard.on('success', function (e) {
+          $(e.trigger)
+            .attr('title', 'Copied!')
+            .tooltip('_fixTitle')
+            .tooltip('show')
+            .attr('title', 'Copy to clipboard')
+            .tooltip('_fixTitle')
+
+          e.clearSelection()
+        })
+
+        clipboard.on('error', function (e) {
+          var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
+          var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
+
+          $(e.trigger)
+            .attr('title', fallbackMsg)
+            .tooltip('_fixTitle')
+            .tooltip('show')
+            .attr('title', 'Copy to clipboard')
+            .tooltip('_fixTitle')
+        })
+
+        new ClipboardJS('.btn')
+      </script>
+    </div>
   </body>
 </html>

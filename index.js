@@ -53,7 +53,7 @@ async function main () {
       const walletId = req.params.walletId || ''
       const wallet = wallets[walletId] || wallets['default']
       if (wallet) {
-        res.render('pages/index.hbs', {
+        res.render('pages/page.hbs', {
           walletId,
           pageData: wallet.page
         })
