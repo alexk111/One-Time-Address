@@ -2,7 +2,13 @@
 
 A better way to share your Bitcoin address. Secret Address is an open-source service which turns your Bitcoin wallets into webpages and embeddable widgets that instantly provide a one-time address whenever someone wants to send you Bitcoin.
 
-Secret Address is not a payment processor for ecommerce. It is for those who don't need invoices, pre-defined amounts, email inputs, fiat calculations, countdowns, etc. Just instant access to a one-time Bitcoin address for sending a custom amount and nothing else. If you need an invoicing system, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
+Secret Address prevents the use of the same address for multiple transactions. You should not reuse addresses because it abuses the privacy and security of the participants of the transactions as well as future holders of their value.
+
+Note: It is not for e-commerce use. Secret Address is for those who don't need invoices, pre-defined amounts, email inputs, fiat calculations, countdowns, etc. Just instant access to a one-time Bitcoin address for sending a custom amount and nothing else. If you need an invoicing system, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
+
+## Demo
+
+Demo webpage:
 
 ## Installing
 
