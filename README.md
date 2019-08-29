@@ -8,19 +8,19 @@ Secret Address is not a payment processor for ecommerce. It is for those who don
 
 ```
 # clone repo
-$ git clone https://github.com/alexk111/Secret-Address
+git clone https://github.com/alexk111/Secret-Address
 
 # navigate to it
-$ cd Secret-Address
+cd Secret-Address
 
 # install dependencies
-$ yarn install
+yarn install
 
 # add env variables
-$ cp .env.prod .env
+cp .env.prod .env
 
 # add wallets config
-$ cp wallets.js.sample wallets.js
+cp wallets.js.sample wallets.js
 ```
 
 Edit ```.env```:
@@ -35,21 +35,21 @@ Edit ```wallets.js```:
 
 ```
 # check if your BTC wallet is generating the same addresses
-$ yarn run check my-wallet # my-wallet = wallet id as you defined in the config
+yarn run check my-wallet
 ```
 
 ## Running
 
 ```
 # running http server
-$ yarn start
+yarn start
 ```
 
 ## Getting stats
 
 ```
 # get stats on how many addresses have been already used
-$ yarn run stats my-wallet # my-wallet = wallet id as you defined in the config
+yarn run stats my-wallet
 ```
 
 ## License
