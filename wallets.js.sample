@@ -1,5 +1,5 @@
 const wallets = {
-  'my-wallet': { // Id/slug for webpage url, widget url, json url
+  'my-wallet': { // Id/slug for webpage url, widget url, json url. Set 'default' for empty slug in url
     'xpub': 'XPUBKEY', // Extended public key of your HD wallet
     'addrEnc': '', // Optional. Address encoding: 'p2pkh'|'p2wpkh-in-p2sh'|'p2wpkh'
     'page': { // Webpage template data
