@@ -1,9 +1,11 @@
 const wallets = {
-  'my-wallet': {
-    'title': 'My Bitcoin Wallet',
-    'description': 'If you want to support my work you can make a donation to this address.',
-    'xpub': 'XPUBKEY',
-    'addrEnc': '' // Optional. 'p2pkh'|'p2wpkh-in-p2sh'|'p2wpkh'
+  'my-wallet': { // Id/slug for webpage url, widget url, json url
+    'xpub': 'XPUBKEY', // Extended public key of your HD wallet
+    'addrEnc': '', // Optional. Address encoding: 'p2pkh'|'p2wpkh-in-p2sh'|'p2wpkh'
+    'page': { // Webpage template data
+      'title': 'My Bitcoin Wallet',
+      'description': 'If you want to support my work you can make a donation to this address.'
+    }
   }
 }
 
