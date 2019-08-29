@@ -1,0 +1,18 @@
+<div class="inner hide-after-load">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+<div class="inner show-after-load d-none">
+  <p id="qrcode-area" class="lead">
+  </p>
+  <p class="lead">
+    <a id="open-in-wallet" href="#" class="btn btn-lg btn-secondary" target="_blank">Open in Wallet</a>
+  </p>
+  <div class="form-group mx-auto">
+    <label for="address-to-copy">&mdash; or copy the address &mdash;</label>
+    <input id="address-to-copy" type="text" class="form-control form-control-sm btn-tooltip btn-clipboard" placeholder="Bitcoin address" aria-label="Bitcoin address" aria-describedby="button-copy" readonly="readonly" data-clipboard-target="#address-to-copy" title="Copy to clipboard">
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<script>
+  function makeQRCode (dataVal) {
+    const qr = qrcode(0, 'M')
+    qr.addData(dataVal)
+    qr.make()
+    return qr.createSvgTag(5, 0)
+  }
+
+  $(function () {
+    setTimeout(function() {
+      $.get('/' + window.walletId + '.json', function (data) {
+        if(data && !data.error) {
+          const bip21Url = 'bitcoin:' + data.address
+          $('#qrcode-area').html(makeQRCode(bip21Url))
+          $('#open-in-wallet').attr('href', bip21Url)
+          $('#address-to-copy').val(data.address)
+          $('.hide-after-load').addClass('d-none')
+          $('.show-after-load').removeClass('d-none')
+        } else {
+          console.log('error')
+        }
+      }).fail(function () {
+        console.log('error')
+      })
+    }, 2000)
+
+    $('.btn-tooltip')
+      .tooltip({'placement': 'bottom'})
+      .on('mouseleave', function () {
+        $(this).tooltip('hide')
+      })
+
+    const clipboard = new ClipboardJS('.btn-clipboard')
+
+    clipboard.on('success', function (e) {
+      $(e.trigger)
+        .attr('title', 'Address copied!')
+        .tooltip('_fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('_fixTitle')
+
+      e.clearSelection()
+    })
+
+    clipboard.on('error', function (e) {
+      var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
+      var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
+
+      $(e.trigger)
+        .attr('title', fallbackMsg)
+        .tooltip('_fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('_fixTitle')
+    })
+
+    new ClipboardJS('.btn')
+  })
+</script>

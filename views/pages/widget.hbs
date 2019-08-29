@@ -3,13 +3,57 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/vendor.css">
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: -ms-flexbox;
+        display: flex;
+        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .12);
+      }
 
-    <title>Widget Title</title>
+      a,
+      a:focus,
+      a:hover {
+        color: #000;
+      }
+
+      .cover-container {
+        max-width: 42em;
+      }
+
+      .btn, svg {
+        width: 80%;
+        max-width: 280px;
+      }
+
+      .form-group {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      svg {
+        height: auto;
+      }
+
+      footer {
+        color: rgba(0, 0, 0, .5);
+      }
+    </style>
+    <script src="/js/vendor.js"></script>
+    <script>
+      window.walletId = '{{walletId}}'
+    </script>
+    {{> wallet_script}}
   </head>
-  <body>
-    <main role="main">
-      <h1>Widget page</h1>
-      <p>{{ walletId }}</p>
-    </main>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column justify-content-center">
+      <main role="main" class="cover">
+        {{> wallet_dom}}
+      </main>
+    </div>
   </body>
 </html>
