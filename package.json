@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
-  "repository": "https://github.com/alexk111/secret-address.git",
+  "repository": "https://github.com/alexk111/Secret-Address.git",
   "author": "alexk111 <alexk111@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
