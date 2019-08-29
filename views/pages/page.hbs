@@ -47,7 +47,7 @@
         color: rgba(0, 0, 0, .5);
       }
     </style>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
@@ -61,15 +61,24 @@
           <p class="lead">{{ pageData.description }}</p>
         </div>
       </header>
-      <main role="main" class="inner cover">
-        <p id="qrcode-area" class="lead">
-        </p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Open in Wallet</a>
-        </p>
-        <div class="form-group mx-auto">
-          <label for="address-to-copy">&mdash; or copy the address &mdash;</label>
-          <input id="address-to-copy" type="text" class="form-control form-control-sm btn-tooltip btn-clipboard" placeholder="Bitcoin address" aria-label="Bitcoin address" aria-describedby="button-copy" readonly="readonly" value="12345BitcoinAddress12345" data-clipboard-target="#address-to-copy" title="Copy to clipboard">
+      <main role="main" class="cover">
+        <div class="inner hide-after-load">
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div class="inner show-after-load d-none">
+          <p id="qrcode-area" class="lead">
+          </p>
+          <p class="lead">
+            <a id="open-in-wallet" href="#" class="btn btn-lg btn-secondary" target="_blank">Open in Wallet</a>
+          </p>
+          <div class="form-group mx-auto">
+            <label for="address-to-copy">&mdash; or copy the address &mdash;</label>
+            <input id="address-to-copy" type="text" class="form-control form-control-sm btn-tooltip btn-clipboard" placeholder="Bitcoin address" aria-label="Bitcoin address" aria-describedby="button-copy" readonly="readonly" data-clipboard-target="#address-to-copy" title="Copy to clipboard">
+          </div>
         </div>
       </main>
 
@@ -90,16 +99,24 @@
           return qr.createSvgTag(5, 0)
         }
 
-        $(function ($) {
-          console.log($)
-          $.get('/' + window.walletId + '.json', function (data) {
-            console.log(data)
-          })
-            .fail(function () {
+        $(function () {
+          setTimeout(function() {
+            $.get('/' + window.walletId + '.json', function (data) {
+              console.log(data)
+              if(data && !data.error) {
+                const bip21Url = 'bitcoin:' + data.address
+                $('#qrcode-area').html(makeQRCode(bip21Url))
+                $('#open-in-wallet').attr('href', bip21Url)
+                $('#address-to-copy').val(data.address)
+                $('.hide-after-load').addClass('d-none')
+                $('.show-after-load').removeClass('d-none')
+              } else {
+                console.log('error')
+              }
+            }).fail(function () {
               console.log('error')
             })
-          const bip21Url = 'bitcoin:' + '12345BitcoinAddress12345'
-          $('#qrcode-area').html(makeQRCode(bip21Url))
+          }, 2000)
 
           $('.btn-tooltip')
             .tooltip({'placement': 'bottom'})
