@@ -5,7 +5,7 @@ const hbs = require('hbs')
 const initWallets = require('./modules/wallets')
 
 async function main () {
-  const wallets = await initWallets()
+  const wallets = await initWallets(true)
 
   hbs.registerPartials(path.join(__dirname, '/views/partials'))
 

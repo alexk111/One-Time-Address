@@ -10,7 +10,7 @@ const calcFileLines = require('./calc-file-lines')
 
 const wallets = require('../wallets')
 
-async function initWallets () {
+async function initWallets (isMain) {
   for (let id in wallets) {
     if (wallets.hasOwnProperty(id)) {
       const wallet = wallets[id]
@@ -37,15 +37,18 @@ async function initWallets () {
         wallet.nextAddrIdx = 0
       }
 
-      // create a write stream for storing the generated addresses: line number = address index
-      try {
-        wallet.streamAddrs = fs.createWriteStream(walletAddrsPath, {flags: 'a'})
-      } catch (e) {
-        throw new Error(`Could not create Write Stream for ${walletAddrsPath}: ${e}`)
-      }
+      // if not a helper process
+      if (isMain) {
+        // create a write stream for storing the generated addresses: line number = address index
+        try {
+          wallet.streamAddrs = fs.createWriteStream(walletAddrsPath, {flags: 'a'})
+        } catch (e) {
+          throw new Error(`Could not create Write Stream for ${walletAddrsPath}: ${e}`)
+        }
 
-      // make a function to generate addresses
-      wallet.generateAddress = makeAddressGenerator(wallet)
+        // make a function to generate addresses
+        wallet.generateAddress = makeAddressGenerator(wallet)
+      }
     }
   }
 
