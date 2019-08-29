@@ -1,5 +1,5 @@
 {
-  "name": "next-bitcoin-address",
+  "name": "secret-address",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
-  "repository": "https://github.com/alexk111/next-bitcoin-address.git",
+  "repository": "https://github.com/alexk111/secret-address.git",
   "author": "alexk111 <alexk111@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
