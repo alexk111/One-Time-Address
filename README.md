@@ -8,7 +8,7 @@ Note: It is not intended for use in e-commerce. One-Time Address is for acceptin
 
 ## Demo
 
-Demo webpage:
+Demo webpage: https://donate.alexkaul.com/one-time-address
 
 ## Installing
 
@@ -57,6 +57,10 @@ yarn start
 # get stats on how many addresses have been already used
 yarn run stats my-wallet
 ```
+
+## 💝 Donations are always appreciated!
+
+Donate Bitcoin: https://donate.alexkaul.com/one-time-address
 
 ## License
 
