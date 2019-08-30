@@ -1,5 +1,5 @@
 {
-  "name": "secret-address",
+  "name": "one-time-address",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
-  "repository": "https://github.com/alexk111/Secret-Address.git",
+  "repository": "https://github.com/alexk111/One-Time-Address.git",
   "author": "alexk111 <alexk111@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
