@@ -16,7 +16,7 @@ async function main () {
 
   app.get('/:walletId/widget', (req, res) => {
     try {
-      const walletId = req.params.walletId || ''
+      const walletId = req.params.walletId || 'default'
       const wallet = wallets[walletId] || wallets['default']
       if (wallet) {
         res.render('pages/widget.hbs', {
@@ -32,7 +32,7 @@ async function main () {
 
   app.get('/:walletId.json', (req, res) => {
     try {
-      const walletId = req.params.walletId || ''
+      const walletId = req.params.walletId || 'default'
       const wallet = wallets[walletId] || wallets['default']
       const address = wallet.generateAddress()
       if (wallet) {
@@ -45,9 +45,9 @@ async function main () {
     }
   })
 
-  app.get('/:walletId', (req, res) => {
+  app.get('/:walletId?', (req, res) => {
     try {
-      const walletId = req.params.walletId || ''
+      const walletId = req.params.walletId || 'default'
       const wallet = wallets[walletId] || wallets['default']
       if (wallet) {
         res.render('pages/page.hbs', {

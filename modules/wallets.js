@@ -21,7 +21,7 @@ async function initWallets (isMain) {
         parsedXPub = parseXPub(wallet.xpub)
         wallet.hdKey = bitcoin.bip32.fromBase58(parsedXPub.xpub)
       } catch (e) {
-        throw new Error('Invalid xpub value in ' + wallet.title)
+        throw new Error('Invalid xpub value in ' + id)
       }
 
       wallet.addrEnc = wallet.addrEnc || parsedXPub.addrEnc
