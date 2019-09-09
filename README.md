@@ -1,6 +1,14 @@
-# One-Time Address
+<div align="center">
+	<img src="media/logo.png" width="250" height="250">
+	<h1 style="color: #005582">One-Time Address</h1>
+	<p>
+		<b>A better way to share your Bitcoin address</b>
+	</p>
+	<br>
+	<br>
+</div>
 
-A better way to share your Bitcoin address. One-Time Address is a self-hosted, open-source service which turns your Bitcoin wallets into webpages and embeddable widgets that instantly provide an address with a QR code whenever someone wants to send you Bitcoin.
+One-Time Address is a self-hosted, open-source service which turns your Bitcoin wallets into webpages and embeddable widgets that instantly provide an address with a QR code whenever someone wants to send you Bitcoin.
 
 One-Time Address never shows the same address twice and thus helps to prevent address reuse. You should not reuse addresses because it abuses the privacy and security of the participants of the transactions as well as future holders of their value.
 
