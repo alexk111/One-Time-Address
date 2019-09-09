@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="media/logo.png" width="250" height="250">
+	<img src="media/logo.png" width="125" height="125">
 	<h1>One-Time Address</h1>
 	<p>
 		<b>A better way to share your Bitcoin address</b>
