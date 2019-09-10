@@ -69,6 +69,10 @@ yarn run stats my-wallet
 
 Since One-Time Address always shows a new address, you will likely find yourself in a situation where more than 20 addresses in a row will have zero transactions. This will cause an [Account Discovery](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account-discovery) issue when received funds don't appear in your Bitcoin wallet. Available workarounds:
 
+### Using HD Wallet Scanner
+
+[HD Wallet Scanner](https://github.com/alexk111/HD-Wallet-Scanner) finds all used addresses in your Bitcoin HD wallets bypassing gap limits. Then you might use Bitcoin Core + HWI (if you use a hardware wallet) to import child keys derived with the address indexes.
+
 ### Using Electrum wallet
 
 [Electrum wallet](https://www.electrum.org/) allows increasing Gap Limit. Open the ```Console tab``` and use the following commands at prompt: ```wallet.change_gap_limit(200)``` and press enter at your keyboard, ```wallet.storage.write()``` and press enter again. Then restart the client. To view/verify the current gap limit, type the following in the console: ```wallet.gap_limit```.
@@ -76,10 +80,6 @@ Since One-Time Address always shows a new address, you will likely find yourself
 ### Using Wasabi wallet
 
 If you are showing bech32 addresses, then you might use [Wasabi wallet](https://wasabiwallet.io/). It also allows increasing Gap Limit. The wallet file can be modified from File/Open/Wallet Folder. To change the gap limit, update ```MinGapLimit``` json property in the wallet file.
-
-### Using Built-in wallet
-
-*(Not available yet)*. In future I'm planning to add a simple built-in wallet which would watch for transactions for generated addresses and enable you to create offline transactions to spend Bitcoin.
 
 ## 💝 Donations are always appreciated!
 
