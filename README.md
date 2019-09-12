@@ -65,13 +65,17 @@ yarn start
 yarn run stats my-wallet
 ```
 
+## Address Cache
+
+One-Time Address keeps generated addresses and visitor IPs in the cache for up to N minutes (5 by default). If the same visitor refreshes the same wallet page within the interval, an address will be returned from the cache instead of generating a new one. This prevents wallets from being bloated with repetitive or automated requests. The interval can be edited with ```addrIPCacheMins``` in ```wallets.js``` file. Set ```0``` to disable the cache.
+
 ## Gap Limit Issue
 
-Since One-Time Address always shows a new address, you will likely find yourself in a situation where more than 20 addresses in a row will have zero transactions. This will cause an [Account Discovery](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account-discovery) issue when received funds don't appear in your Bitcoin wallet. Available workarounds:
+Since One-Time Address provides every visitor with a new Bitcoin address, you might find yourself in a situation where more than 20 addresses in a row will have zero transactions. This will cause an [Account Discovery](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account-discovery) issue when received funds don't appear in your Bitcoin wallet. Available workarounds:
 
 ### Using HD Wallet Scanner
 
-[HD Wallet Scanner](https://github.com/alexk111/HD-Wallet-Scanner) finds all used addresses in your Bitcoin HD wallets bypassing gap limits. Then you might use Bitcoin Core + HWI (if you use a hardware wallet) to import child keys derived with the address indexes.
+[HD Wallet Scanner](https://github.com/alexk111/HD-Wallet-Scanner) finds all used addresses in your Bitcoin HD wallets bypassing gap limits. Then you might use Bitcoin Core + HWI (if you use a hardware wallet) to import child keys derived with their indexes.
 
 ### Using Electrum wallet
 
