@@ -14,7 +14,9 @@ function makeAddressGenerator (wallet) {
     if (!addr) {
       addr = addressGenerators[wallet.addrEnc](wallet.hdKey, wallet.nextAddrIdx)
       ++wallet.nextAddrIdx
-      wallet.streamAddrs.write(addr + '\n')
+      const isoDate = new Date().toISOString()
+      const addrLog = `${addr};${isoDate};${clientIP}`
+      wallet.streamAddrs.write(addrLog + '\n')
     }
 
     if (cache) {
