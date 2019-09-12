@@ -34,7 +34,7 @@ async function main () {
     try {
       const walletId = req.params.walletId || 'default'
       const wallet = wallets[walletId] || wallets['default']
-      const address = wallet.generateAddress()
+      const address = wallet.generateAddress(req.connection.remoteAddress)
       if (wallet) {
         res.json({ address, walletId })
       } else {
