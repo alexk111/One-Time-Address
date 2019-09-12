@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const requestIp = require('request-ip')
 
 const initWallets = require('./modules/wallets')
 
@@ -30,11 +31,11 @@ async function main () {
     }
   })
 
-  app.get('/:walletId.json', (req, res) => {
+  app.get('/:walletId.json', [requestIp.mw()], (req, res) => {
     try {
       const walletId = req.params.walletId || 'default'
       const wallet = wallets[walletId] || wallets['default']
-      const address = wallet.generateAddress(req.connection.remoteAddress)
+      const address = wallet.generateAddress(req.clientIp)
       if (wallet) {
         res.json({ address, walletId })
       } else {
