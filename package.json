@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec \"node -r dotenv/config index.js\"",
+    "dev": "nodemon --ext js,hbs --exec \"node -r dotenv/config index.js\"",
     "start": "node -r dotenv/config index.js",
     "check": "node check.js",
     "stats": "node stats.js",
