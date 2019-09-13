@@ -7,6 +7,7 @@
   }
 
   $(function () {
+    $('body').addClass('started')
     setTimeout(function() {
       $.get('/' + window.walletId + '.json', function (data) {
         if(data && !data.error) {

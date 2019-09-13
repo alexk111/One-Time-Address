@@ -4,45 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/vendor.css">
-    <style>
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        display: -ms-flexbox;
-        display: flex;
-        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .12);
-      }
-
-      a,
-      a:focus,
-      a:hover {
-        color: #000;
-      }
-
-      .cover-container {
-        max-width: 42em;
-      }
-
-      .btn, svg {
-        width: 80%;
-        max-width: 280px;
-      }
-
-      .form-group {
-        width: 100%;
-        max-width: 360px;
-      }
-
-      svg {
-        height: auto;
-      }
-
-      footer {
-        color: rgba(0, 0, 0, .5);
-      }
-    </style>
+    {{> wallet_style}}
     <script src="/js/vendor.js"></script>
     <script>
       window.walletId = '{{walletId}}'

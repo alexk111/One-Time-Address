@@ -1,0 +1,69 @@
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    display: -ms-flexbox;
+    display: flex;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .12);
+  }
+
+  a,
+  a:focus,
+  a:hover {
+    color: #000;
+  }
+
+  .cover-container {
+    max-width: 42em;
+  }
+
+  .btn, svg {
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  svg {
+    height: auto;
+  }
+
+  .onetime-progress {
+    width: 100px;
+    height: auto;
+    -webkit-transform: translateZ(-1400px) translateY(50px);
+            transform: translateZ(-1400px) translateY(50px);
+    opacity: 0;
+    transition: 0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  }
+
+  .started .onetime-progress {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+
+  .onetime-progress #Ticket {
+    fill:#414549;
+  }
+
+  .onetime-progress #Address {
+    fill:none;
+    stroke:#414549;
+    stroke-width:9.38px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 50 1000;
+    stroke-dashoffset: 51;
+    transition: 2.5s linear;
+  }
+
+  .started .onetime-progress #Address {
+    stroke-dashoffset: 0;
+  }
+</style>
