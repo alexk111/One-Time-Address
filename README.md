@@ -11,7 +11,9 @@ One-Time Address is a self-hosted, open-source service which turns your Bitcoin 
 
 One-Time Address never shows the same address twice and thus helps to prevent address reuse. You should not reuse addresses because it abuses the privacy and security of the participants of the transactions as well as future holders of their value.
 
-Note: It is not intended for use in e-commerce. One-Time Address is for accepting donations in Bitcoin and other cases when you don't need invoices, pre-defined amounts, email inputs, fiat calculations, countdowns, etc. Just instant access to a one-time Bitcoin address for sending a custom amount and nothing else. If you need an invoicing system, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
+Note #1: If the same visitor requests an address multiple times within a short period, he might see an address generated for him last time instead of a new one. This prevents wallets from bloating with repetitive requests.
+
+Note #2: It is not intended for use in e-commerce. One-Time Address is for accepting donations in Bitcoin and other cases when you don't need invoices, pre-defined amounts, email inputs, fiat calculations, countdowns, etc. Just instant access to a one-time Bitcoin address for sending a custom amount and nothing else. If you need an invoicing system, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
 
 ## Live Demo
 
