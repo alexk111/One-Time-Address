@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/vendor.css">
     {{> wallet_style}}
+    <style>
+      .page-back {
+        position: fixed;
+        top: 0;
+        background: rgb(204,207,210);
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(204,207,210,1) 100%);
+      }
+      main {
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+      }
+      .onetime {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    </style>
     <script src="/js/vendor.js"></script>
     <script>
       window.walletId = '{{walletId}}'
@@ -12,10 +29,10 @@
     {{> wallet_script}}
   </head>
   <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column justify-content-center">
-      <main role="main" class="cover">
-        {{> wallet_dom}}
-      </main>
+    <div class="page-back w-100 h-100">
     </div>
+    <main role="main" class="page-front d-flex w-100 h-100">
+      {{> wallet_dom noClose=true}}
+    </main>
   </body>
 </html>

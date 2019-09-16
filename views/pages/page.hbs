@@ -10,9 +10,41 @@
     <link rel="stylesheet" href="/css/vendor.css">
     {{> wallet_style}}
     <style>
+      @media (max-width: 900px) {
+        .display-4 {
+          font-size: 2.5rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .display-4 {
+          font-size: 2.1rem;
+        }
+      }
+      .page-back {
+        position: fixed;
+        top: 0;
+        background: rgb(204,207,210);
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(204,207,210,1) 100%);
+      }
       footer {
         color: rgba(0, 0, 0, .5);
       }
+      main {
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+      }
+      .onetime {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      @media screen and (min-width: 420px) {
+        .onetime {
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+      }
+
     </style>
     <script src="/js/vendor.js"></script>
     <script>
@@ -21,22 +53,21 @@
     {{> wallet_script}}
   </head>
   <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="page-back d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="mb-auto pt-3 pb-3">
         <div class="inner">
-          <h1 class="cover-heading">{{ pageData.title }}</h1>
+          <h1 class="display-4">{{ pageData.title }}</h1>
           <p class="lead">{{ pageData.description }}</p>
         </div>
       </header>
-      <main role="main" class="cover">
-        {{> wallet_dom}}
-      </main>
-
       <footer class="mt-auto pt-3">
         <div class="inner">
           {{> footer}}
         </div>
       </footer>
     </div>
+    <main role="main" class="page-front d-flex w-100 h-100">
+      {{> wallet_dom}}
+    </main>
   </body>
 </html>

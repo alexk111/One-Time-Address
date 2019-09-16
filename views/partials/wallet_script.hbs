@@ -3,7 +3,33 @@
     const qr = qrcode(0, 'M')
     qr.addData(dataVal)
     qr.make()
-    return qr.createSvgTag(5, 0)
+    return qr.createSvgTag({
+      cellSize: 5,
+      margin: 0,
+      scalable: true
+    })
+  }
+
+  function flipIn() {
+    $('.onetime-ticket')
+      .removeClass('flip-ticket-out')
+      .queue( function() {
+        var reflow = this.offsetHeight;
+        $(this)
+          .addClass('flip-ticket-in')
+          .dequeue();
+      })
+  }
+
+  function flipOut() {
+    $('.onetime-ticket')
+      .removeClass('flip-ticket-in')
+      .queue( function() {
+        var reflow = this.offsetHeight;
+        $(this)
+          .addClass('flip-ticket-out')
+          .dequeue();
+      })
   }
 
   $(function () {
@@ -13,10 +39,12 @@
         if(data && !data.error) {
           const bip21Url = 'bitcoin:' + data.address
           $('#qrcode-area').html(makeQRCode(bip21Url))
-          $('#open-in-wallet').attr('href', bip21Url)
-          $('#address-to-copy').val(data.address)
-          $('.hide-after-load').addClass('d-none')
-          $('.show-after-load').removeClass('d-none')
+          $('.open-in-wallet').attr('href', bip21Url)
+          $('#address-to-copy').text(data.address)
+          if (data.address.length > 34) {
+            $('#address-to-copy').addClass('is-long-address')
+          }
+          flipIn()
         } else {
           console.log('error')
         }
@@ -25,8 +53,17 @@
       })
     }, 2000)
 
+    $('.onetime-front').on('click', function (event) {
+      event.preventDefault()
+      flipIn()
+    })
+    $('.onetime-back-close').on('click', function (event) {
+      event.preventDefault()
+      flipOut()
+    })
+
     $('.btn-tooltip')
-      .tooltip({'placement': 'bottom'})
+      .tooltip({'placement': 'top'})
       .on('mouseleave', function () {
         $(this).tooltip('hide')
       })

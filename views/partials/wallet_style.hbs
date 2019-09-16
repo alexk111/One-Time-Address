@@ -1,11 +1,13 @@
 <style>
+  /* Common styles for Page and Widget */
   html,
   body {
+    width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   body {
-    display: -ms-flexbox;
-    display: flex;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .12);
   }
 
@@ -15,44 +17,38 @@
     color: #000;
   }
 
-  .cover-container {
-    max-width: 42em;
-  }
-
   .btn, svg {
-    width: 80%;
-    max-width: 280px;
-  }
-
-  .form-group {
     width: 100%;
-    max-width: 360px;
   }
 
   svg {
     height: auto;
   }
 
+  /* Ticket styles */
+  .onetime {
+    box-sizing: content-box;
+    width: 100%;
+    max-width: 380px;
+    padding: 0 16px;
+    perspective: 700px;
+  }
+
+  /* Smooth appearance on start */
   .onetime-progress {
     width: 100px;
     height: auto;
-    -webkit-transform: translateZ(-1400px) translateY(50px);
-            transform: translateZ(-1400px) translateY(50px);
+    transform: translateZ(-1400px) translateY(250px);
     opacity: 0;
-    transition: 0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    transition: 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550);
   }
-
   .started .onetime-progress {
-    -webkit-transform: translateZ(0) translateY(0);
-            transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
     opacity: 1;
   }
 
-  .onetime-progress #Ticket {
-    fill:#414549;
-  }
-
-  .onetime-progress #Address {
+  /* Progressbar */
+  .onetime-progress .progressbar {
     fill:none;
     stroke:#414549;
     stroke-width:9.38px;
@@ -62,8 +58,116 @@
     stroke-dashoffset: 51;
     transition: 2.5s linear;
   }
-
-  .started .onetime-progress #Address {
+  .started .onetime-progress .progressbar {
     stroke-dashoffset: 0;
   }
+
+  /* Ticket sides */
+  .onetime-ticket {
+    position: relative;
+    margin: auto;
+    transform-style: preserve-3d;
+    transform: scale(0.2);
+    pointer-events: all;
+  }
+  .onetime-front {
+    width: 100%;
+    backface-visibility: hidden;
+  }
+  .onetime-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+  .onetime-front, .onetime-back {
+    filter: drop-shadow(0 6px 35px rgba(0,0,0,0.32));
+  }
+  .onetime-ticket.flip-ticket-in {
+    opacity: 1;
+    animation: flip-ani 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+  }
+  .onetime-ticket.flip-ticket-out {
+    animation: flip-ani 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) reverse both;
+  }
+  .onetime-ticket:not(.flip-ticket-out):not(.flip-ticket-in) .onetime-front,
+  .onetime-ticket.flip-ticket-out .onetime-front {
+    opacity: 0.5;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .onetime-ticket:not(.flip-ticket-out):not(.flip-ticket-in) .onetime-front:hover,
+  .onetime-ticket.flip-ticket-out .onetime-front:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  @keyframes flip-ani {
+    0% {
+      transform: scale(0.2) rotateX(0);
+    }
+    100% {
+      transform: scale(1) rotateY(-180deg);
+    }
+  }
+
+  /* Ticket content */
+  .ticket-out, .bitcoin {
+    fill: #404142;
+  }
+  .ticket-in {
+    fill: #fff;
+  }
+  .onetime-back-content {
+    position: absolute;
+    top: 44px;
+    left: 50px;
+    right: 50px;
+    bottom: 58px;
+    overflow: hidden;
+  }
+  button.onetime-back-close {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    top: 6px;
+    right: 9px;
+  }
+  #qrcode-area path {
+    fill: #353637;
+  }
+  #address-to-copy-area {
+    height: 10vw;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 8px;
+  }
+  #address-to-copy {
+    cursor: pointer;
+    text-align: center;
+    word-break: break-all;
+    font-size: 2.9vw;
+    line-height: 4vw;
+  }
+  #address-to-copy.is-long-address {
+    font-size: 2.5vw;
+    line-height: 3.75vw;
+  }
+  @media screen and (min-width: 420px) {
+    #address-to-copy-area {
+      height: 38px;
+    }
+    #address-to-copy {
+      font-size: 12px;
+      line-height: 17px;
+    }
+    #address-to-copy.is-long-address {
+      font-size: 10px;
+      line-height: 15px;
+    }
+  }
+
 </style>
