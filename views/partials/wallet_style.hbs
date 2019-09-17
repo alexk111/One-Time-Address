@@ -92,13 +92,12 @@
   .onetime-ticket.flip-ticket-out {
     animation: flip-ani 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) reverse both;
   }
-  .onetime-ticket:not(.flip-ticket-out):not(.flip-ticket-in) .onetime-front,
-  .onetime-ticket.flip-ticket-out .onetime-front {
+
+  .address-loaded .onetime-ticket.flip-ticket-out .onetime-front {
     opacity: 0.5;
     transition: transform 0.3s, opacity 0.3s;
   }
-  .onetime-ticket:not(.flip-ticket-out):not(.flip-ticket-in) .onetime-front:hover,
-  .onetime-ticket.flip-ticket-out .onetime-front:hover {
+  .address-loaded .onetime-ticket.flip-ticket-out .onetime-front:hover {
     cursor: pointer;
     opacity: 1;
     transform: scale(1.1);

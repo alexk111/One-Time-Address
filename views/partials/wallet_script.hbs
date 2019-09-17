@@ -45,6 +45,7 @@
             $('#address-to-copy').addClass('is-long-address')
           }
           flipIn()
+          $('body').addClass('address-loaded')
         } else {
           console.log('error')
         }
@@ -55,7 +56,9 @@
 
     $('.onetime-front').on('click', function (event) {
       event.preventDefault()
-      flipIn()
+      if ($('body').hasClass('address-loaded')) {
+        flipIn()
+      }
     })
     $('.onetime-back-close').on('click', function (event) {
       event.preventDefault()
