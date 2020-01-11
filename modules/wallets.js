@@ -37,6 +37,10 @@ async function initWallets (isMain) {
         wallet.nextAddrIdx = 0
       }
 
+      // options
+      wallet.revealDelayMsec = wallet.revealDelayMsec || 2000
+      wallet.revealDelay2Msec = wallet.revealDelayMsec + 500
+
       // if not a helper process
       if (isMain) {
         // create a write stream for storing the generated addresses: line number = address index

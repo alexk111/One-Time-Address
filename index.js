@@ -22,6 +22,8 @@ async function main() {
       if (wallet) {
         res.render("pages/widget.hbs", {
           walletId,
+          revealDelayMsec: wallet.revealDelayMsec,
+          revealDelay2Msec: wallet.revealDelay2Msec,
           isTransparentBg: !!req.query.isTransparentBg
         });
       } else {
@@ -54,6 +56,8 @@ async function main() {
       if (wallet) {
         res.render("pages/page.hbs", {
           walletId,
+          revealDelayMsec: wallet.revealDelayMsec,
+          revealDelay2Msec: wallet.revealDelay2Msec,
           pageData: wallet.page
         });
       } else {

@@ -3,6 +3,7 @@ const wallets = {
     'xpub': 'XPUBKEY', // Extended public key of your HD wallet
     'addrEnc': '', // Optional. Address encoding: 'p2pkh'|'p2wpkh-in-p2sh'|'p2wpkh'
     'addrIPCacheMins': 5, // Optional. Max number of minutes an address generated for IP remains in the cache. 0 = disable cache
+    'revealDelayMsec': 2000,  // Optional. Generate an address after a specified number of msecs. Default: 2000
     'page': { // Webpage template data
       'title': 'My Bitcoin Wallet',
       'description': 'If you want to support my work you can make a donation to this address.'
