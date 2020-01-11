@@ -1,22 +1,29 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/vendor.css">
     {{> wallet_style}}
     <style>
+      body {
+        background: none;
+      }
+
       .page-back {
         position: fixed;
         top: 0;
-        background: rgb(204,207,210);
-        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(204,207,210,1) 100%);
+        background: rgba(204, 207, 210, 0.75);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(204, 207, 210, 0.75) 100%);
       }
+
       main {
         position: absolute;
         top: 0;
         pointer-events: none;
       }
+
       .onetime {
         padding-top: 20px;
         padding-bottom: 20px;
@@ -28,6 +35,7 @@
     </script>
     {{> wallet_script}}
   </head>
+
   <body class="text-center">
     <div class="page-back w-100 h-100">
     </div>
@@ -35,4 +43,5 @@
       {{> wallet_dom noClose=true}}
     </main>
   </body>
+
 </html>
