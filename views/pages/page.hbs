@@ -1,5 +1,11 @@
 <!doctype html>
 <html lang="en">
+
+  <!--
+    Powered by One-Time Address
+    https://github.com/alexk111/One-Time-Address
+  -->
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,36 +21,41 @@
           font-size: 2.5rem;
         }
       }
+
       @media (max-width: 480px) {
         .display-4 {
           font-size: 2.1rem;
         }
       }
+
       .page-back {
         position: fixed;
         top: 0;
-        background: rgb(204,207,210);
-        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(204,207,210,1) 100%);
+        background: rgb(204, 207, 210);
+        background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(204, 207, 210, 1) 100%);
       }
+
       footer {
         color: rgba(0, 0, 0, .5);
       }
+
       main {
         position: absolute;
         top: 0;
         pointer-events: none;
       }
+
       .onetime {
         padding-top: 20px;
         padding-bottom: 20px;
       }
+
       @media screen and (min-width: 420px) {
         .onetime {
           padding-top: 40px;
           padding-bottom: 40px;
         }
       }
-
     </style>
     <script src="/js/vendor.js"></script>
     <script>
@@ -52,6 +63,7 @@
     </script>
     {{> wallet_script}}
   </head>
+
   <body class="text-center">
     <div class="page-back d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="mb-auto pt-3 pb-3">
@@ -70,4 +82,5 @@
       {{> wallet_dom}}
     </main>
   </body>
+
 </html>
