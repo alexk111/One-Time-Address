@@ -19,6 +19,9 @@
       .page-back {
         position: fixed;
         top: 0;
+      }
+
+      body:not(.is-transparent-bg) .page-back {
         background: rgba(204, 207, 210, 0.75);
         background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(204, 207, 210, 0.75) 100%);
       }
@@ -41,7 +44,7 @@
     {{> wallet_script}}
   </head>
 
-  <body class="text-center">
+  <body class="text-center {{#if isTransparentBg}}is-transparent-bg{{/if}}">
     <div class="page-back w-100 h-100">
     </div>
     <main role="main" class="page-front d-flex w-100 h-100">
