@@ -1,6 +1,6 @@
 {
   "name": "one-time-address",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --ext js,hbs --exec \"node -r dotenv/config index.js\"",
