@@ -13,7 +13,7 @@ One-Time Address never shows the same address twice and thus helps to prevent ad
 
 Note #1: If the same visitor requests an address multiple times within a short period, he might see an address generated for him last time instead of a new one. This prevents wallets from bloating with repetitive requests.
 
-Note #2: It is not intended for use in e-commerce. One-Time Address is for accepting donations in Bitcoin and other cases when you don't need invoices, pre-defined amounts, email inputs, fiat calculations, countdowns, etc. Just instant access to a one-time Bitcoin address for sending a custom amount and nothing else. If you need an invoicing system, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
+Note #2: It is not intended for use in e-commerce or when it's needed to trigger execution of other processes after the payment is done. One-Time Address provides the instant access to a one-time Bitcoin address and nothing else. If you need more features, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
 
 ## Live Demo
 
