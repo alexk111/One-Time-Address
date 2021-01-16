@@ -89,8 +89,6 @@ If you are showing bech32 addresses, then you might use [Wasabi wallet](https://
 
 ## Backers 💝
 
-[[Become a backer](https://mynode.alexkaul.com/gh-donate)]
-
 [![Backer](https://mynode.alexkaul.com/gh-backer/top/0/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/0/profile)
 [![Backer](https://mynode.alexkaul.com/gh-backer/top/1/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/1/profile)
 [![Backer](https://mynode.alexkaul.com/gh-backer/top/2/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/2/profile)
@@ -101,6 +99,8 @@ If you are showing bech32 addresses, then you might use [Wasabi wallet](https://
 [![Backer](https://mynode.alexkaul.com/gh-backer/top/7/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/7/profile)
 [![Backer](https://mynode.alexkaul.com/gh-backer/top/8/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/8/profile)
 [![Backer](https://mynode.alexkaul.com/gh-backer/top/9/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/9/profile)
+
+Thank you for your support! 🙌 [[Donate](https://mynode.alexkaul.com/gh-donate)]
 
 ## License
 
