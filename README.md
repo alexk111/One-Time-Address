@@ -13,7 +13,7 @@ One-Time Address never shows the same address twice and thus helps to prevent ad
 
 Note #1: If the same visitor requests an address multiple times within a short period, he might see an address generated for him last time instead of a new one. This prevents wallets from bloating with repetitive requests.
 
-Note #2: It is not intended for use in e-commerce. One-Time Address is for accepting donations in Bitcoin and other cases when you don't need invoices, pre-defined amounts, email inputs, fiat calculations, countdowns, etc. Just instant access to a one-time Bitcoin address for sending a custom amount and nothing else. If you need an invoicing system, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
+Note #2: It is not intended for use in e-commerce or when it's needed to trigger execution of other processes after the payment is done. One-Time Address provides the instant access to a one-time Bitcoin address and nothing else. If you need more features, then consider using [BTCPay Server](https://github.com/btcpayserver/btcpayserver).
 
 ## Live Demo
 
@@ -87,9 +87,20 @@ Since One-Time Address provides every visitor with a new Bitcoin address, you mi
 
 If you are showing bech32 addresses, then you might use [Wasabi wallet](https://wasabiwallet.io/). It also allows increasing Gap Limit. The wallet file can be modified from File/Open/Wallet Folder. To change the gap limit, update ```MinGapLimit``` json property in the wallet file.
 
-## 💝 Donations are always appreciated!
+## Backers 💝
 
-Donate Bitcoin: https://donate.alexkaul.com/one-time-address
+[[Become a backer](https://mynode.alexkaul.com/gh-donate)]
+
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/0/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/0/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/1/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/1/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/2/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/2/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/3/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/3/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/4/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/4/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/5/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/5/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/6/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/6/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/7/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/7/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/8/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/8/profile)
+[![Backer](https://mynode.alexkaul.com/gh-backer/top/9/avatar/60)](https://mynode.alexkaul.com/gh-backer/top/9/profile)
 
 ## License
 
